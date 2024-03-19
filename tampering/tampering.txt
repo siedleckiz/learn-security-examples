@@ -1,0 +1,10 @@
+In our response the name variable is assumed to be string. However, this could be some kind of malicious script.
+
+The value of name comes from the client which means that an attacker could put a code snippet that could do something malicious.
+
+So we could insert a link into the server endpoint.
+The server endpoint will then display it on the page.
+This causes a cross-site scripting attack. We can then trick the user into clicking it and executing some malicious code.
+
+In order to resolve this vulnerability we convert the name variable to a string so that it does not execute a script.
+By sanitizing our inputs we can destroy the malicious code so that it is not executed.
