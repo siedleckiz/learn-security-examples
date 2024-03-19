@@ -13,3 +13,5 @@ the cookie unreadable programatically. As a result we cannot use the script in m
 The sameSite flag means that the cookie in the session ID will only be sent if the request is coming from the same origin.
 This prevents the browser from sending this cookie along with cross-site requests.
 This prevents the issue of where we could access the sensitive endpoint by using a cross-site request forgery.
+
+Spoofing violates the confidentiality property of CIA.

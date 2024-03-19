@@ -8,3 +8,5 @@ This causes a cross-site scripting attack. We can then trick the user into click
 
 In order to resolve this vulnerability we convert the name variable to a string so that it does not execute a script.
 By sanitizing our inputs we can destroy the malicious code so that it is not executed.
+
+Tampering violates the integrity property of CIA
