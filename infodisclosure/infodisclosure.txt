@@ -1,3 +1,11 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+A malicious attacker can hijact the username variable.
+Username will not always be a string. It could be an empty condition that would give us access to all of the passwords.
+Via cross-site scripting attack. So doing tampering and information disclosure at the same time.
+
 Which CIA property does tampering violate?
+Tampering violates the integrity property of CIA
+
 What additional security mechanisms can you incorporate?
+We need to sanitizie the input in order to prevent a user from injecting an empty condition that gives them access to sensitive information.
