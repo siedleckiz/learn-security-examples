@@ -1,0 +1,15 @@
+- Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+There is no way of authenticating if the person who sent in the ID is actually the admin user. As a result an attacker
+could impersonate the admin by supplying the admin's id number and downgrade the role of an admin.
+An attacker could brute force the id of the admin in order to find the correct id to do privilege escalation.
+In order to prevent the vulnerability we need to create some kind of authentication.
+We can check to see if the userID of the user is set in the sessionID of that user who is sending in the update form.
+We also sign the session in the cookie so that we can make sure that nobody changes the session ID in the cookie.
+If someone does then we know that the signed key will not match and we reject the request.
+We can also make sure that the cookie cannot be accessed programatically.
+
+- What additional security mechanisms can you incorporate to prevent such attacks?
+
+We can also implement a security mechanism like 2 factor authentication. We can also ask the user to input a password
+with their user ID so that we can authenticate them as the admin user.

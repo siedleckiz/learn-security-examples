@@ -1,3 +1,15 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+A malicious attacker can hijact the username variable on line 26.
+Username will not always be a string. It could be an empty condition that would give us access to all of the passwords.
+This is a cross-site scripting attack. So this is doing tampering and information disclosure at the same time.
+The secure version sanitizes the input in order to prevent a user from injecting an empty condition that gives them access to sensitive information.
+This means we need to whitelist the input so that the input is of the correct type and is not some query condition.
+So we can make sure the input is a string and replace any special characters in the input
+
 Which CIA property does tampering violate?
+Tampering violates the confidentiality and integrity properties of CIA. We are allowing attacker to change variables in our system
+
 What additional security mechanisms can you incorporate?
+We can hash the passwords in our database so that we are not storing plaintext passwords.
+We can use a JWT token to encrypt our session

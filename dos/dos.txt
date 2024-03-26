@@ -1,2 +1,13 @@
 - Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+There is no try catch block so there is no way to gracefully handle an exception. MongoDB will crash if we try to input a regular
+expression for the id value since it only accepts strings due to safeguards. As a result an attacker could input a regular expression
+and could cause the server to crash thereby causing a denial of service attack.
+
+The secure version prevents the vulnerability by creating a try catch block around executing the user query. As a result if we obtain
+an exception then we will catch it and handle it without the server crashing.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+We can use rate limiting middlewares so that a user can ony send a certain maximum number of requests within a set time.
+As a result we can prevent users from overloading the server with too many requests in a short amount of time.

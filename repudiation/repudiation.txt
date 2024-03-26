@@ -1,2 +1,12 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+
+In the insecure version there is no logging. So this means that we are not keeping a record of what changes we are making to
+the system, when we are making them, and who is making those changes via their IP address.
+In the secure version we create a log entry each time a change is made to the system. We record that log entry which contains
+the time, action done, and IP address of the user who made that change.
+Also if any error is returned when trying to write to our log entry then we also maintain a record of that error
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+We can also implement an audit trail to help us with repudiation.
+We can also use cryptographic techniques to secure the data and communication so we can prevent the manipulation or fabrication of data.
